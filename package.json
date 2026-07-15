@@ -24,7 +24,7 @@
     "docker:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up",
     "docker:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
     "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml up",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "keywords": [
     "node",
@@ -49,30 +49,30 @@
     "prettier"
   ],
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcryptjs": "^3.0.3",
     "compression": "^1.8.1",
     "cors": "^2.8.6",
-    "cross-env": "^7.0.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.22.2",
+    "cross-env": "^10.0.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
     "express-mongo-sanitize": "^2.2.0",
-    "express-rate-limit": "^5.5.1",
-    "helmet": "^4.1.0",
-    "http-status": "^1.8.1",
-    "joi": "^17.13.4",
+    "express-rate-limit": "^8.0.0",
+    "helmet": "8.1.0",
+    "http-status": "^2.0.0",
+    "joi": "^18.0.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.30.1",
-    "mongoose": "^5.13.23",
+    "mongoose": "^8.0.0",
     "morgan": "^1.11.0",
-    "nodemailer": "^6.10.1",
-    "passport": "^0.4.0",
+    "nodemailer": "^9.0.0",
+    "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
-    "pm2": "^5.4.3",
-    "swagger-jsdoc": "^6.0.8",
-    "swagger-ui-express": "^4.6.3",
+    "pm2": "^7.0.0",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.0",
     "validator": "^13.15.35",
     "winston": "^3.19.0",
-    "xss-clean": "^0.1.1"
+    "xss": "^1.0.15"
   },
   "devDependencies": {
     "coveralls": "^3.0.7",
@@ -84,13 +84,13 @@
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-security": "^1.7.1",
     "faker": "^5.1.0",
-    "husky": "7.0.4",
-    "jest": "^26.0.1",
-    "lint-staged": "^11.2.6",
+    "husky": "^9.0.0",
+    "jest": "^30.0.0",
+    "lint-staged": "^16.0.0",
     "node-mocks-http": "^1.18.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.0",
     "prettier": "^2.0.5",
-    "supertest": "^6.3.4"
+    "supertest": "^7.0.0"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

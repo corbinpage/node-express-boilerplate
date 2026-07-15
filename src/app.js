@@ -1,11 +1,11 @@
 const express = require('express');
 const helmet = require('helmet');
-const xss = require('xss-clean');
-const mongoSanitize = require('express-mongo-sanitize');
 const compression = require('compression');
 const cors = require('cors');
 const passport = require('passport');
-const httpStatus = require('http-status');
+const httpStatus = require('http-status').default;
+const xss = require('./middlewares/xss');
+const mongoSanitize = require('./middlewares/mongoSanitize');
 const config = require('./config/config');
 const morgan = require('./config/morgan');
 const { jwtStrategy } = require('./config/passport');
@@ -30,6 +30,15 @@ app.use(express.json());
 // parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
 
+// Express 5 leaves req.body undefined when no body is parsed; default to {} so
+// downstream validation and controllers can rely on it being an object.
+app.use((req, res, next) => {
+  if (req.body === undefined) {
+    req.body = {};
+  }
+  next();
+});
+
 // sanitize request data
 app.use(xss());
 app.use(mongoSanitize());
@@ -39,7 +48,7 @@ app.use(compression());
 
 // enable cors
 app.use(cors());
-app.options('*', cors());
+app.options(/.*/, cors());
 
 // jwt authentication
 app.use(passport.initialize());
